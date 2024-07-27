@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instituto de Educacion Social Hawking</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="banner-header">
+            <img src="img/LOGO_PNG 6.png" alt="Banner de la Página" class="banner-img">
+        </div>
+        <nav class="navbar">
+            <ul class="nav-links">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="pags/acerca.html">Acerca de Nosotros</a></li>
+                <li><a href="pags/oferta">Oferta Educativa</a></li>
+                <li><a href="pags/contacto.html">Contactanos</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section id="slider">
+            <div class="slides">
+                <div class="slide">
+                    <img src="img/promo1.png" alt="Slide 1">
+                </div>
+                <div class="slide">
+                    <img src="img/promo6.png" alt="Slide 2">
+                </div>
+                <div class="slide">
+                    <img src="img/promo9.png" alt="Slide 3">
+                </div>
+                <div class="slide text-slide">
+                    <h2>¡Conéctate con nosotros hoy mismo!</h2>
+                    <a href="pags/contacto.html" class="contact-button">Estamos a un solo clic de distancia</a>
+                </div>
+            </div>
+        </section>
+        
+        
+        <section id="info">
+            <h1>Misión</h1>
+            <p>La licenciatura en Trabajo Social <br>
+                es un sector educativo que promueve la formación profesional de calidad que exige el sustento teórico, ético y moral de los conocimientos de quienes la ejerzan <br>
+                 para interactuar con pertinencia y relevancia en aspectos sociales de crecimiento que logren el beneficio de una sociedad demandante de atención profesional en este ámbito.</p>
+        </section>
+    </main>
+    <i class="fas fa-clock" id="clock-icon"></i>
+    <div id="schedule-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Horarios de Atención</h2>
+            <p>Lunes a Viernes 
+                9:00am a 3:00pm
+                <br>
+                Sábados 
+                9:00am a 4:00pm</p>
+        </div>
+    </div>
+    <footer>
+        <div class="footer-container">
+            <div class="footer-content">
+                <h3>Redes Sociales</h3>
+                <div class="social-icons">
+                    <a href="https://www.facebook.com/ieshiguala"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com/ieshiguala/"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="https://kit.fontawesome.com/d68a5f9db4.js" crossorigin="anonymous"></script>
+    <script>
+        // JavaScript for modal
+        var modal = document.getElementById("schedule-modal");
+        var clockIcon = document.getElementById("clock-icon");
+        var closeBtn = document.getElementsByClassName("close")[0];
+
+        clockIcon.onclick = function() {
+            modal.style.display = "block";
+        }
+
+        closeBtn.onclick = function() {
+            modal.style.display = "none";
+        }
+
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+
+      // JavaScript for slider
+let slideIndex = 0;
+const slides = document.querySelectorAll('.slides .slide');
+const totalSlides = slides.length;
+
+function showSlide(index) {
+    slides.forEach((slide, i) => {
+        slide.style.display = (i === index) ? 'block' : 'none';
+    });
+}
+
+function nextSlide() {
+    slideIndex = (slideIndex + 1) % totalSlides;
+    showSlide(slideIndex);
+}
+
+setInterval(nextSlide, 4000);
+
+document.addEventListener('DOMContentLoaded', () => {
+    showSlide(slideIndex);
+});
+
+
+           // JavaScript for clock icon animation
+    setInterval(() => {
+        clockIcon.style.animationPlayState = 'running';
+        setTimeout(() => {
+            clockIcon.style.animationPlayState = 'paused';
+        }, 500);
+    }, 1000);
+    </script>
+</body>
+</html>
